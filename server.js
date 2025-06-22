@@ -1,3 +1,5 @@
+require('dotenv').config(); // <-- Yeh sabse top pe hona chahiye
+
 const express = require('express');
 const mysql = require('mysql2/promise');
 const socketio = require('socket.io');
@@ -16,14 +18,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // MySQL Connection Pool
 const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: '8889936911',
-  database: 'quiz_game',
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
 });
+
 
 // Test DB Connection
 async function testDBConnection() {
