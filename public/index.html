@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Master Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Auth Modal -->
+        <div class="auth-modal" id="authModal">
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <div class="auth-tab active" data-form="login">Login</div>
+                    <div class="auth-tab" data-form="signup">Sign Up</div>
+                </div>
+                
+                <div class="auth-form active" id="loginForm">
+                    <input type="text" id="loginUsername" placeholder="Username">
+                    <input type="password" id="loginPassword" placeholder="Password">
+                    <button class="auth-btn" id="loginBtn">Login</button>
+                </div>
+                
+                <div class="auth-form" id="signupForm">
+                    <input type="text" id="signupUsername" placeholder="Username">
+                    <input type="password" id="signupPassword" placeholder="Password">
+                    <input type="password" id="signupConfirm" placeholder="Confirm Password">
+                    <button class="auth-btn" id="signupBtn">Sign Up</button>
+                </div>
+            </div>
+        </div>
+        
+        <header>
+            <div class="logo">
+                <div class="logo-icon">Q</div>
+                <h1>QuizMaster Pro</h1>
+            </div>
+            <div class="nav-buttons">
+                <div class="user-info" id="userInfo" style="display: none;">
+                    <div class="user-avatar" id="userAvatar"></div>
+                    <span id="username">Username</span>
+                </div>
+                <button class="btn" id="logoutBtn" style="display: none;">Logout</button>
+                <button class="btn" id="loginBtnHeader">Login</button>
+                <button class="btn" id="adminBtn">Admin Panel</button>
+            </div>
+        </header>
+        
+        <main>
+            <div class="quiz-container" id="quizSelection">
+                <h2>Popular Quizzes</h2>
+                <div class="quiz-cards" id="quizCards">
+                    <!-- Quizzes will be loaded here -->
+                </div>
+            </div>
+            
+            <div class="quiz-interface hidden" id="quizInterface">
+                <h2 id="quizTitle">Quiz Title</h2>
+                <div class="question-container">
+                    <h3 id="questionText">Question text will appear here</h3>
+                    <div class="options-container" id="optionsContainer">
+                        <!-- Options will be loaded here -->
+                    </div>
+                </div>
+                <div class="quiz-controls">
+                    <div class="timer" id="timer">30s</div>
+                    <div class="current-score">Score: <span id="currentScore">0</span></div>
+                    <button class="btn" id="nextBtn">Next Question</button>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <h2>Live Leaderboard</h2>
+                <div class="leaderboard" id="leaderboard">
+                    <!-- Leaderboard will be loaded here -->
+                </div>
+            </div>
+        </main>
+        
+        <div class="notification" id="notification">
+            <div class="notification-icon">✓</div>
+            <div class="notification-content">
+                <div class="notification-title">Correct!</div>
+                <div class="notification-message">You earned 10 points</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
