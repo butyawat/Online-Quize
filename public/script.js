@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const socket = io();
+    const socket = io(https://online-quize-pk3p.onrender.com);
     let currentUser = null;
     let currentQuiz = null;
     let currentQuestionIndex = 0;
